@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #11458e; /* Warna latar belakang umum */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,7 +33,29 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #fff; /* Warna untuk judul */
+  margin-bottom: 20px; /* Jarak di bawah judul */
 }
+
+/* --- KODE CSS UNTUK INPUT --- */
+input[type="text"] {
+  padding: 0.8em 1.2em;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0; /* Warna latar belakang input */
+  color: #333; /* Warna teks input */
+  width: 250px; /* Lebar input */
+  box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
+  display: block; /* Agar input mengambil baris penuh, sehingga tombol turun secara alami */
+  margin: 0 auto 15px auto; /* Tengah secara horizontal, dan berjarak 15px di bawah */
+}
+
+input[type="text"]::placeholder {
+  color: #999;
+}
+/* --- AKHIR KODE CSS UNTUK INPUT --- */
+
 
 button {
   border-radius: 8px;
@@ -42,9 +64,18 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #36383a;
+  color: white; /* Warna teks tombol */
   cursor: pointer;
   transition: border-color 0.25s;
+  /* Properti `gap` pada `button` tidak akan berfungsi di sini karena `button` bukan flex container. */
+  /* --- KODE PENAMBAHAN JARAK --- */
+  margin-top: 15px; /* Memberi jarak 15px di bagian atas tombol dari elemen di atasnya */
+  margin: 15px 8px 8px 8px; /* Contoh kombinasi: atas 15px, kanan 8px, bawah 8px, kiri 8px. */
+                           /* Atau lebih sederhana: margin-top: 15px; margin-left: 8px; margin-right: 8px; */
+  /* Jika Anda punya banyak tombol dan ingin jarak antar tombol juga, gunakan `margin: 15px 8px 0 8px;` pada tombol, */
+  /* lalu bungkus semua tombol dalam div dengan `display: flex; gap: 10px;` seperti contoh sebelumnya. */
+  /* --- AKHIR KODE PENAMBAHAN JARAK --- */
 }
 button:hover {
   border-color: #646cff;
@@ -63,6 +94,18 @@ button:focus-visible {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex; /* Mengubah #app menjadi flex container */
+  flex-direction: column; /* Mengatur item agar berjejer ke bawah */
+  align-items: center; /* Mengatur item agar berada di tengah secara horizontal */
+  justify-content: center; /* Mengatur item agar berada di tengah secara vertikal */
+}
+
+/* Untuk mengatur jarak antar tombol jika ada lebih dari satu tombol */
+.button-container {
+    display: flex;
+    gap: 10px; /* Jarak antar tombol */
+    margin-top: 15px; /* Jarak dari elemen di atasnya (misal: input) */
+    justify-content: center;
 }
 
 @media (prefers-color-scheme: light) {
@@ -75,5 +118,14 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+    color: #213547; /* Warna teks tombol untuk light mode */
+  }
+  h1 {
+    color: #213547; /* Warna judul untuk light mode */
+  }
+  input[type="text"] {
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #36383a;
   }
 }
