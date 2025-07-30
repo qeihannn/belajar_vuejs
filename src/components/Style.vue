@@ -13,7 +13,9 @@ function toggleBold() {
     bold.value = !bold.value
 }
 
-</script>
+</script>  
+
+
 
 <template>
 <h1 :class="{red: red, bold: bold}">Style</h1>
